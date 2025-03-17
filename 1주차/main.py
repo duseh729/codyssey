@@ -1,6 +1,9 @@
+import os
+
 file = []
 
-uri = 'C:/Users/duseh/OneDrive/바탕 화면/동미대/코디세이/1주차/'
+PATH = os.getcwd()
+uri = os.path.abspath(PATH) + '/'
 
 try:
     file = open(uri + 'mission_computer_main.log', 'r')
