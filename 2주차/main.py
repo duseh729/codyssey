@@ -5,6 +5,8 @@ import pickle
 uri = os.path.dirname(__file__) + '/'
 
 # 예외 처리 함수
+# *args는 위치 인자(add(data1, data2) <- data1과 data2), **kwargs는 키워드 인자(add(data1 = 3, data2 = 5) <- 이런 형식)
+# 위치가 중요하다 *args는 무조건 앞에 **kwargs는 무조건 뒤에
 def safe_execute(func, *args, **kwargs):
     try:
         return func(*args, **kwargs)
@@ -19,6 +21,7 @@ def safe_execute(func, *args, **kwargs):
 def read_csv(file_name):
     return safe_execute(_read_csv, file_name)
 
+# 언더스코어(_) 내부에서만 사용하겠다는 관례 (java의 private과 비슷한데 강제적인 것이 아님)
 def _read_csv(file_name):
     with open(uri + file_name, 'r') as c:
         csv_data = csv.reader(c)
