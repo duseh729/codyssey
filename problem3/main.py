@@ -23,7 +23,7 @@ def read_csv(file_name):
 
 # 언더스코어(_) 내부에서만 사용하겠다는 관례 (java의 private과 비슷한데 강제적인 것이 아님)
 def _read_csv(file_name):
-    with open(uri + file_name, 'r') as c:
+    with open(uri + file_name, 'r', encoding='utf-8') as c:
         csv_data = csv.reader(c)
         return list(csv_data)
 
@@ -32,7 +32,7 @@ def save_to_csv_file(data, name):
     return safe_execute(_save_to_csv_file, data, name)
 
 def _save_to_csv_file(data, name):
-    with open(uri + name + '.csv', 'w', newline='') as f:
+    with open(uri + name + '.csv', 'w', newline='', encoding='uth-8') as f:
         writer = csv.writer(f)
         writer.writerows(data)
         print("csv 파일 저장 완료")
