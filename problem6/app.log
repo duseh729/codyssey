@@ -4,3 +4,9 @@
 2025-03-31 09:45:53 - INFO - mars_base_external_illuminance: 658.7
 2025-03-31 09:45:53 - INFO - mars_base_internal_co2: 0.03
 2025-03-31 09:45:53 - INFO - mars_base_internal_oxygen: 4.65
+2025-03-31 16:01:36 - INFO - mars_base_internal_temperature: 29.64
+2025-03-31 16:01:36 - INFO - mars_base_external_temperature: 19.31
+2025-03-31 16:01:36 - INFO - mars_base_internal_humidity: 59.76
+2025-03-31 16:01:36 - INFO - mars_base_external_illuminance: 635.32
+2025-03-31 16:01:36 - INFO - mars_base_internal_co2: 0.04
+2025-03-31 16:01:36 - INFO - mars_base_internal_oxygen: 5.37

@@ -12,12 +12,8 @@ logging.basicConfig(
 )
 
 def logging_value(value):
-    logging.info(f'mars_base_internal_temperature: {value["mars_base_internal_temperature"]}')
-    logging.info(f'mars_base_external_temperature: {value["mars_base_external_temperature"]}')
-    logging.info(f'mars_base_internal_humidity: {value["mars_base_internal_humidity"]}')
-    logging.info(f'mars_base_external_illuminance: {value["mars_base_external_illuminance"]}')
-    logging.info(f'mars_base_internal_co2: {value["mars_base_internal_co2"]}')
-    logging.info(f'mars_base_internal_oxygen: {value["mars_base_internal_oxygen"]}')
+    for key in value:
+        logging.info(f'{key}: {value[key]}')
 
 def round_num(num):
     return round(num, 2)
