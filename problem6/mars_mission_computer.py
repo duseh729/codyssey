@@ -20,7 +20,7 @@ def round_num(num):
 
 class DummySensor:
     def __init__(self):
-        self.env_values = {
+        self.__env_values = {
             'mars_base_internal_temperature': None,
             'mars_base_external_temperature': None,
             'mars_base_internal_humidity': None,
@@ -30,29 +30,30 @@ class DummySensor:
         }
 
     def set_env(self):
-        self.env_values['mars_base_internal_temperature'] = round_num(random.uniform(18, 31))
-        self.env_values['mars_base_external_temperature'] = round_num(random.uniform(0, 22))
-        self.env_values['mars_base_internal_humidity'] = round_num(random.uniform(50, 61))
-        self.env_values['mars_base_external_illuminance'] = round_num(random.uniform(500, 715))
-        self.env_values['mars_base_internal_co2'] = round_num(random.uniform(0.02, 0.1))
-        self.env_values['mars_base_internal_oxygen'] = round_num(random.uniform(4, 7))
+        self.__env_values['mars_base_internal_temperature'] = round_num(random.uniform(18, 31))
+        self.__env_values['mars_base_external_temperature'] = round_num(random.uniform(0, 22))
+        self.__env_values['mars_base_internal_humidity'] = round_num(random.uniform(50, 61))
+        self.__env_values['mars_base_external_illuminance'] = round_num(random.uniform(500, 715))
+        self.__env_values['mars_base_internal_co2'] = round_num(random.uniform(0.02, 0.1))
+        self.__env_values['mars_base_internal_oxygen'] = round_num(random.uniform(4, 7))
     
     def get_env(self):
-        logging_value(self.env_values)
-        return self.env_values
+        logging_value(self.__env_values)
+        return self.__env_values
     
-ds = DummySensor()
-ds.set_env()
+if __name__ == "__main__":
+    ds = DummySensor()
+    ds.set_env()
 
-ds_value = ds.get_env()
-unit = {
-    'mars_base_internal_temperature': '℃',
-    'mars_base_external_temperature': '℃',
-    'mars_base_internal_humidity': '%',
-    'mars_base_external_illuminance': 'W/m²',
-    'mars_base_internal_co2': '%',
-    'mars_base_internal_oxygen': '%'
-}
+    ds_value = ds.get_env()
+    unit = {
+        'mars_base_internal_temperature': '℃',
+        'mars_base_external_temperature': '℃',
+        'mars_base_internal_humidity': '%',
+        'mars_base_external_illuminance': 'W/m²',
+        'mars_base_internal_co2': '%',
+        'mars_base_internal_oxygen': '%'
+    }
 
-for key in ds_value:
-    print(f'{key}: {ds_value[key]}{unit[key]}')
+    for key in ds_value:
+        print(f'{key}: {ds_value[key]}{unit[key]}')
