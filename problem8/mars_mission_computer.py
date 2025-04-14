@@ -53,7 +53,7 @@ class MissionComputer:
             print(self.to_json(info))
             return info
         except Exception as e:
-            print(f'Error retrieving mission computer info: {e}')
+            print(f'get_mission_computer_info error: {e}')
             return {}
 
     def get_mission_computer_load(self):
@@ -65,7 +65,7 @@ class MissionComputer:
             print(self.to_json(load_info))
             return load_info
         except Exception as e:
-            print(f'Error retrieving mission computer load: {e}')
+            print(f'get_mission_computer_load error: {e}')
             return {}
 
 if __name__ == '__main__':
