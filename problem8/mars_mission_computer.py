@@ -37,8 +37,8 @@ class MissionComputer:
 
             time.sleep(5)
 
-    def to_json(self):
-        return json.dumps(self.__env_values, indent=4)
+    def to_json(self, data):
+        return json.dumps(data, indent=4)
     
 
     def get_mission_computer_info(self):
@@ -48,7 +48,8 @@ class MissionComputer:
                 'os_version': platform.version(),
                 'cpu_type': platform.processor(),
                 'cpu_cores': psutil.cpu_count(logical=False),
-                'memory_size_gb': round(psutil.virtual_memory().total / (1024 ** 3), 2)
+                # 'memory_size_gb': round(psutil.virtual_memory().total / (1024 ** 3), 2)
+                'memory_size_gb': psutil.virtual_memory().total
             }
             print(self.to_json(info))
             return info
