@@ -50,7 +50,7 @@ class MissionComputer:
                 'cpu_cores': psutil.cpu_count(logical=False),
                 'memory_size_gb': round(psutil.virtual_memory().total / (1024 ** 3), 2)
             }
-            print(json.dumps(info, indent=4))
+            print(self.to_json(info))
             return info
         except Exception as e:
             print(f'Error retrieving mission computer info: {e}')
@@ -62,7 +62,7 @@ class MissionComputer:
                 'cpu_usage_percent': psutil.cpu_percent(interval=1),
                 'memory_usage_percent': psutil.virtual_memory().percent
             }
-            print(json.dumps(load_info, indent=4))
+            print(self.to_json(load_info))
             return load_info
         except Exception as e:
             print(f'Error retrieving mission computer load: {e}')
