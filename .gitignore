@@ -1,3 +1,5 @@
 *.pdf
 
 temp.py
+
+__pycache__
