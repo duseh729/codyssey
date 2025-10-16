@@ -1,7 +1,10 @@
 # sendmail.py
 import smtplib
 from email.mime.text import MIMEText
+from dotenv import load_dotenv
 import os
+
+load_dotenv() # .env 파일에서 환경 변수를 불러옵니다.
 
 def send_mail():
     try:
@@ -11,7 +14,7 @@ def send_mail():
 
         # 2. 사용자 정보
         sender_email = os.getenv('EMAIL_ADDRESS')
-        receiver_email = "보내고 싶은 이메일 작성"
+        receiver_email = "보내고 싶은 이메일 입력"
         password = os.getenv('EMAIL_PASSWORD')
 
         # 3. 메일 내용 작성
