@@ -1,6 +1,7 @@
 # database.py
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
+import contextlib
 
 SQLITE_URL = 'sqlite:///./app.db'
 
@@ -20,6 +21,7 @@ SessionLocal = sessionmaker(
 
 Base = declarative_base()
 
+@contextlib.contextmanager
 def get_db():
     db = SessionLocal()
     try:
