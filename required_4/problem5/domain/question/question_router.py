@@ -20,7 +20,7 @@ def question_list(db: Session = Depends(get_db)):
 
 # 2) 질문 생성
 @router.post("/create")
-def create_question(payload: QuestionCreate, db: Session = Depends(get_db)):
+def question_create(payload: QuestionCreate, db: Session = Depends(get_db)):
     question = Question(
         subject=payload.subject,
         content=payload.content,
